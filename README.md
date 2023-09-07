@@ -1,10 +1,24 @@
 # MiniAOD_photons_to_ML
 
 This code extracts photon candidates from CMS MiniAOD files and is meant to build datasets to train deep-learning models to separate real photons from fakes.
+The files `CRAB_config.py` and `slim_MiniAODs.py` are needed to slim the MiniAOD files and store locally.
 
-The files `CRAB_config.py` and `slim_MiniAODs.py` are needed to slim the MiniAOD files and store locally (already done).
+The file "1-weigh.py" loops through the files and creates 2 dimensional weights. 
+The file "2-datapreperation.py" loops through the files, apply selection criteria and saves the relevant information for the analysis. 
 
-For the further analysis of the data, `MiniAOD_analyser.py` can be used.  
+
+
+
+
+
+
+
+
+
+
+
+
+
 How to run the code: 
 
 ### 1) Setup CMSSW environment 
@@ -40,15 +54,3 @@ After first time with installing, you can skip some of the steps above, just do:
 `cd MiniAOD_photons_for_ML`
 
 `python3 MiniAOD_analyser.py`
-
-
-## ToDo 
-This code is still under development and contains only a first skeleton at this point. 
-- Implement CMS-standard pre-selection cuts on photon candidate shower shapes which are applied before the MVA
-- Make the code save the ECAL RecHits, separately for real and fake photons in an appropriate format (e.g. using numpy) for the ML studies that we want to do
-- Validation steps: plotting of shower shapes distributions and calorimeter images seperately for real photons and fakes 
-- Add tracks to our calorimeter images / graphs 
-
-Further information about how to read MiniAOD files: https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2017#4_7_MiniAOD_Analysis_Documentati
-
-For tracks and isolation, this will be helpful: https://github.com/cms-sw/cmssw/blob/master/RecoEgamma/PhotonIdentification/plugins/PhotonIDValueMapProducer.cc#L254

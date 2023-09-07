@@ -4,6 +4,7 @@ This code extracts photon candidates from CMS MiniAOD files and is meant to buil
 The files `CRAB_config.py` and `slim_MiniAODs.py` are needed to slim the MiniAOD files and store locally.
 
 The file "1-weigh.py" loops through the files and creates 2 dimensional weights. 
+
 The file "2-datapreperation.py" loops through the files, apply selection criteria and saves the relevant information for the analysis. 
 
 
